@@ -19,6 +19,10 @@ public class RandomFact {
         return new RandomFact("", "", "", "");
     }
 
+    public static RandomFact builder(String id, String title, String text, String link) {
+        return new RandomFact(id, title, text, link);
+    }
+
 
     public String toJsonString() {
         return "{\"id\":\"1\",\"title\":\"First random fact\", \"text\":\"Just my first random facts\", \"link\":\"http://reddit.com/randomfact/1\"}";
