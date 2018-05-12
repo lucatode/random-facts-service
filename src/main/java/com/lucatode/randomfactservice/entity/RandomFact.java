@@ -1,4 +1,4 @@
-package com.lucatode.randomfactservice.controllers;
+package com.lucatode.randomfactservice.entity;
 
 public class RandomFact {
 
@@ -15,6 +15,7 @@ public class RandomFact {
     }
 
     public static RandomFact builder() {
+
         return new RandomFact("", "", "", "");
     }
 
