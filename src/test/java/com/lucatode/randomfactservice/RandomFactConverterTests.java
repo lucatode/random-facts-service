@@ -15,7 +15,12 @@ public class RandomFactConverterTests {
     public void testRandomFactToJson(){
         // Setup
         RandomFactConverter randomFactConverter = new RandomFactConverter();
-        RandomFact randomFact = RandomFact.builder("1", "First random fact", "Just my first random fact","http://reddit.com/randomfact/1");
+        RandomFact randomFact = new RandomFact.Builder()
+                .id("1")
+                .title("First random fact")
+                .text("Just my first random fact")
+                .link("http://reddit.com/randomfact/1")
+                .build();
 
         // Execute
         String json = randomFactConverter.toJsonString(randomFact);

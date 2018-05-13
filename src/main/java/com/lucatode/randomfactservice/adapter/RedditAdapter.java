@@ -6,7 +6,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class RedditAdapter {
 
+
+
     public RandomFact getRandomFact() {
-        return null;
+
+        return new RandomFact.Builder()
+                .build();
     }
 }

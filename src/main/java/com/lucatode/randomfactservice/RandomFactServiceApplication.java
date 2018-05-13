@@ -8,5 +8,7 @@ public class RandomFactServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(RandomFactServiceApplication.class, args);
+
 	}
+
 }

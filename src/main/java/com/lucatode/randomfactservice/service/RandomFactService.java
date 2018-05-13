@@ -1,7 +1,7 @@
 package com.lucatode.randomfactservice.service;
 
+import com.lucatode.randomfactservice.adapter.RandomFactConverter;
 import com.lucatode.randomfactservice.adapter.RedditAdapter;
-import com.lucatode.randomfactservice.entity.RandomFact;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,13 +10,15 @@ public class RandomFactService {
 
     @Autowired
     private final RedditAdapter redditAdapter;
+    @Autowired
+    private final RandomFactConverter randomFactConverter;
 
-    public RandomFactService(RedditAdapter redditAdapter) {
+    public RandomFactService(RedditAdapter redditAdapter, RandomFactConverter randomFactConverter) {
         this.redditAdapter = redditAdapter;
+        this.randomFactConverter = randomFactConverter;
     }
 
     public String getRandomFact() {
-        // "{\"id\":\"1\",\"title\":\"First random fact\", \"text\":\"Just my first random facts\", \"link\":\"http://reddit.com/randomfact/1\"}";
-        return this.redditAdapter.getRandomFact().toJsonString();
+        return this.randomFactConverter.toJsonString(this.redditAdapter.getRandomFact());
     }
 }
